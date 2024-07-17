@@ -7,7 +7,8 @@ const visaInput = document.getElementById('visa');
 const mastercardInput = document.getElementById('mastercard');
 const paypalInput = document.getElementById('paypal');
 const termsInput = document.getElementById('terms');
-
+const passwordInput = document.getElementById('password');
+const showPasswordInput = document.getElementById('show-password');
 
 function checkoutAge(age){
     submitForm.addEventListener('click', (e) => {
@@ -48,6 +49,21 @@ function checkTermsAndConditions(){
     })
 }
 
+// function to show the password
+function showPassword() {
+    // Agregar evento al checkbox para cambiar la visibilidad de la contraseña
+    showPasswordInput.addEventListener('change', function() {
+    if (this.checked) {
+        passwordInput.type = 'text';
+    } else {
+        passwordInput.type = 'password';
+    }
+});
+}
+
+
+
+showPassword()
 checkCreditCard()
 checkTermsAndConditions()
 checkoutAge(ageInput)
