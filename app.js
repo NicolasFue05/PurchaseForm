@@ -6,17 +6,15 @@ const submitForm = document.getElementById('enter-button');
 const visaInput = document.getElementById('visa');
 const mastercardInput = document.getElementById('mastercard');
 const paypalInput = document.getElementById('paypal');
+const termsInput = document.getElementById('terms');
+
 
 function checkoutAge(age){
     submitForm.addEventListener('click', (e) => {
         // evitar que se recargue la pagina
         e.preventDefault();
 
-        if(age.value <= 18){
-            message.innerText = "You are a minor, you cannot buy!!";
-        } else {
-            message.innerText = "You are older!";
-        }
+
     })
 }
 
@@ -38,5 +36,18 @@ function checkCreditCard(){
     })
 }
 
+// Terms and Conditions
+function checkTermsAndConditions(){
+    submitForm.addEventListener('click', (e) => {
+        if(termsInput.checked){
+            console.log("Terms accepted!")
+        } else{
+            console.log("Terms no accepted!")
+            message.innerText = "You need to accept terms and conditions!"
+        }
+    })
+}
+
 checkCreditCard()
+checkTermsAndConditions()
 checkoutAge(ageInput)
