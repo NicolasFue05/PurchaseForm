@@ -30,8 +30,6 @@ function checkCreditCard(){
         console.log("Paypal")
         return true
     } else {
-        e.preventDefault();
-        message.innerText = "Your not subcribed!"
         console.log("You are not subcribed!!")
         return false
     }
@@ -66,6 +64,7 @@ function verifyPurchase(){
     submitForm.addEventListener('click', (e) => {
             // checkout age
         if(checkoutAge(ageInput) && checkCreditCard() && checkTermsAndConditions()){
+            e.preventDefault()
             message.innerText = "Purchase Complete!";
         } else {
             e.preventDefault()
